@@ -1,0 +1,13 @@
+.container {
+  display: block;
+  margin: 30px auto;
+  padding: 30px 30px;
+  max-width: 60%;
+
+  border-radius: 10px;
+  background: radial-gradient(
+    926px at 2.7% 11%,
+    rgb(17, 29, 94) 0%,
+    rgb(178, 31, 102) 90%
+  );
+}
