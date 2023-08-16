@@ -1,13 +1,19 @@
 .container {
   display: block;
-  margin: 30px auto;
-  padding: 30px 30px;
-  max-width: 60%;
-
-  border-radius: 10px;
-  background: radial-gradient(
-    926px at 2.7% 11%,
-    rgb(17, 29, 94) 0%,
-    rgb(178, 31, 102) 90%
+  margin: 20% auto;
+  padding: 30px 30px 150px;
+  max-width: 50%;
+  background: linear-gradient(
+    180.3deg,
+    rgb(221, 221, 221) 5.5%,
+    rgb(110, 136, 161) 90.2%
   );
+  border-radius: 10px;
+}
+body {
+  max-width: 80%;
+  display: block;
+  margin: 8px;
+  padding: 5px 5px 5px 5px;
+  background-color: bl;
 }
