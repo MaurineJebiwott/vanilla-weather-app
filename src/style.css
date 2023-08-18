@@ -79,15 +79,15 @@ img {
   width: 60px;
   height: 60px;
   position: relative;
-  top: -15px;
-  margin-left: 25px;
+  top: -30px;
+  margin-left: 30px;
 }
 .Weatherinfo .temperature {
   color: #212121;
   font-size: 80px;
   font-weight: 700;
   line-height: 1;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .Weatherinfo .unit {
   color: #212121;
