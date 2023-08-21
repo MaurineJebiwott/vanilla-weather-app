@@ -57,6 +57,7 @@
   flex: 0 0 auto;
   width: 50%;
   max-width: 100%;
+  text-transform: capitalize;
 }
 h1 {
   color: #272142;
@@ -96,4 +97,7 @@ img {
   line-height: 1;
   position: relative;
   top: -34px;
+}
+.Weatherinfo #description:first-letter {
+  text-transform: capitalize;
 }
