@@ -11,6 +11,6 @@ function displayWeather(response) {
   humidity.innerHTML = `Humidity:${response.data.main.humidity}%`;
   let wind = document.querySelector(".wind");
   wind.innerHTML = `Wind:${response.data.wind.speed}km/h`;
-  let description = document.querySelector("#description");
-  description.innerHTML = response.data.weather.description;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather.description;
 }
