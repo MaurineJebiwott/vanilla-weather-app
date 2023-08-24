@@ -24,6 +24,9 @@ a {
   color: #212121;
   cursor: default;
 }
+a #link {
+  font-weight: 400;
+}
 
 .weather .search-input {
   background: #f9f7fe;
