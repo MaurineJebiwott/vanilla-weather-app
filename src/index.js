@@ -2,7 +2,7 @@ function formatDate(timestamp) {
   let date = new Date();
   let hour = date.getHours();
   if (hour < 10) {
-    hour = `0${hours}`;
+    hour = `0${hour}`;
   }
   let minute = date.getMinutes();
   if (minute < 10) {
@@ -40,15 +40,16 @@ function displayWeather(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`
   );
 }
-function currentWeather() {
+function weatherApi(city) {
   let apiKey = "743bee57fddbfaf52447193a87d5dd25";
-  let city = document.querySelector(".search-input").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
-function submitSearch(event) {
+function handleSubmit(event) {
   event.preventDefault();
-  currentWeather();
+  let cityElement = document.querySelector(".search-input");
+  weatherApi(cityElement.value);
 }
-let cityValue = document.querySelector(".button");
-cityValue.addEventListener("submit", submitSearch);
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
