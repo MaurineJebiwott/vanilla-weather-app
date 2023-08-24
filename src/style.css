@@ -19,6 +19,12 @@
   display: flex;
   flex-wrap: wrap;
 }
+a {
+  text-decoration: none;
+  color: #212121;
+  cursor: default;
+}
+
 .weather .search-input {
   background: #f9f7fe;
   border: none;

@@ -23,7 +23,8 @@ function formatDate(timestamp) {
 }
 function displayWeather(response) {
   let temperature = document.querySelector(".temperature");
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  temperature.innerHTML = Math.round(celsiusTemperature);
   let cityName = document.querySelector("h1");
   cityName.innerHTML = response.data.name;
   let humidity = document.querySelector(".humidity");
@@ -50,6 +51,25 @@ function handleSubmit(event) {
   let cityElement = document.querySelector(".search-input");
   weatherApi(cityElement.value);
 }
-
+function changeTemperatureFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function changeTemperatureCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", changeTemperatureFahrenheit);
+
+let celsiuslink = document.querySelector("#celsius-link");
+celsiuslink.addEventListener("click", changeTemperatureCelsius);
+
+weatherApi("Nairobi");
