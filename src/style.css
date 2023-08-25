@@ -85,7 +85,7 @@ h1 {
   align-items: center;
   margin-top: 20px;
 }
-img {
+#icon {
   margin: 10px 0;
   width: 60px;
   height: 60px;
@@ -110,4 +110,8 @@ img {
 }
 .Weatherinfo #description:first-letter {
   text-transform: capitalize;
+}
+.weather-forecast {
+  margin-top: 20px;
+  text-align: centre;
 }
