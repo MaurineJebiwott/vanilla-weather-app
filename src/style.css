@@ -113,5 +113,8 @@ h1 {
 }
 .weather-forecast {
   margin-top: 20px;
-  text-align: centre;
+  border-bottom: 1px solid #f9f7fe;
+  margin: 40px 0;
+  padding-bottom: 50px;
+  text-align: center;
 }
