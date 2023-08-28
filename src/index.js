@@ -21,31 +21,45 @@ function formatDate(timestamp) {
 
   return `${day} ${hour}:${minute} `;
 }
+function formatforecast(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let forecastDays = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  forecastDays.forEach(function (day) {
-    forecastHTML += `<div class="col-2">
-                <div>${day}</div>
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML += `<div class="col-2">
+                <div>${formatforecast(forecastDay.dt)}</div>
                 <div>
                   <img
-                    src="https://openweathermap.org/img/wn/10d@2x.png"
+                    src="https://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png"
                     alt="clear"
                     class="forecast-icons"
                     width="36"
                   />
                 </div>
-                <div> <span>20</span>
-                  <span>12</span></div>
+                <div> 
+                <span><strong>${Math.round(
+                  forecastDay.temp.max
+                )}°</strong> </span>
+                  <span>${Math.round(forecastDay.temp.min)}° </span></div>
               </div>`;
+    }
   });
   forecastHTML += `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
   let apiKey = "743bee57fddbfaf52447193a87d5dd25";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 function displayWeather(response) {
@@ -101,4 +115,3 @@ let celsiuslink = document.querySelector("#celsius-link");
 celsiuslink.addEventListener("click", changeTemperatureCelsius);
 
 weatherApi("Nairobi");
-displayForecast();
