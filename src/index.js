@@ -21,6 +21,28 @@ function formatDate(timestamp) {
 
   return `${day} ${hour}:${minute} `;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let forecastDays = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  forecastDays.forEach(function (day) {
+    forecastHTML += `<div class="col-2">
+                <div>${day}</div>
+                <div>
+                  <img
+                    src="https://openweathermap.org/img/wn/10d@2x.png"
+                    alt="clear"
+                    class="forecast-icons"
+                    width="36"
+                  />
+                </div>
+                <div> <span>20</span>
+                  <span>12</span></div>
+              </div>`;
+  });
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function displayWeather(response) {
   let temperature = document.querySelector(".temperature");
   celsiusTemperature = response.data.main.temp;
@@ -28,7 +50,7 @@ function displayWeather(response) {
   let cityName = document.querySelector("h1");
   cityName.innerHTML = response.data.name;
   let humidity = document.querySelector(".humidity");
-  humidity.innerHTML = `Humidity:${response.data.main.humidity}%`;
+  humidity.innerHTML = ` Humidity:${response.data.main.humidity}%`;
   let wind = document.querySelector(".wind");
   wind.innerHTML = `Wind:${response.data.wind.speed}km/h`;
   let descriptionElement = document.querySelector("#description");
@@ -73,3 +95,4 @@ let celsiuslink = document.querySelector("#celsius-link");
 celsiuslink.addEventListener("click", changeTemperatureCelsius);
 
 weatherApi("Nairobi");
+displayForecast();
